@@ -5,11 +5,11 @@ class ApiResponse<T> {
   final int currentPage;
   final int lastPage;
 
-  ApiResponse(
-    this.status,
-    this.message,
-    this.record,
-    this.currentPage,
-    this.lastPage,
-  );
+  ApiResponse({
+    required this.status,
+    this.message = "",
+    required this.record,
+    this.currentPage = 1,
+    this.lastPage = 1,
+  });
 }
