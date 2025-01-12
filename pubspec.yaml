@@ -1,6 +1,6 @@
 name: flutter_clean_architecture_app
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -9,6 +9,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  dartz: ^0.10.1
+  flutter_bloc: ^8.1.6
+  http: ^1.2.2
+  shared_preferences: ^2.3.5
+  get_it: ^8.0.3
+  easy_localization: ^3.0.7
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +23,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/translations/
+    - assets/images/
+    - assets/icons/
+    - assets/fonts/
