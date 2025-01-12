@@ -1,7 +1,10 @@
+import 'package:flutter_clean_architecture_app/data/datasources/api_client.dart';
+import 'package:flutter_clean_architecture_app/data/repositories/auth_repository.dart';
 import 'package:get_it/get_it.dart';
 
-final getIt = GetIt.instance;
+GetIt locator = GetIt.instance;
 
 void setup() {
-  // GetIt.I.registerLazySingleton<RESTAPI>(() => RestAPIImplementation());
+  locator.registerLazySingleton<ApiClient>(() => ApiClient());
+  locator.registerLazySingleton<AuthRepository>(() => AuthRepository());
 }

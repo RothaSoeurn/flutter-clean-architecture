@@ -1,14 +1,13 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_clean_architecture_app/core/error/exceptions.dart';
 import 'package:flutter_clean_architecture_app/core/error/feature.dart';
+import 'package:flutter_clean_architecture_app/core/injector.dart';
 import 'package:flutter_clean_architecture_app/core/utils/constant/enum.dart';
 import 'package:flutter_clean_architecture_app/data/datasources/api_client.dart';
 import 'package:flutter_clean_architecture_app/data/responses/api_response.dart';
 
 class AuthRepository {
-  final ApiClient apiClient;
-
-  AuthRepository(this.apiClient);
+  final ApiClient apiClient = locator<ApiClient>();
 
   Future<Either<Feature, ApiResponse>> login(
       {Map<String, dynamic>? parameters}) async {
