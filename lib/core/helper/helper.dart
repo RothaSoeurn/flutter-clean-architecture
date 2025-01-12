@@ -5,6 +5,7 @@ import 'package:flutter_clean_architecture_app/core/translations/km.dart';
 import 'package:flutter_clean_architecture_app/core/utils/constant/color.dart';
 import 'package:flutter_clean_architecture_app/core/utils/constant/enum.dart';
 import 'package:flutter_clean_architecture_app/core/utils/constant/key.dart';
+import 'package:flutter_clean_architecture_app/core/utils/constant/size_config.dart';
 import 'package:flutter_clean_architecture_app/core/utils/log/logger.dart';
 import 'package:flutter_clean_architecture_app/presentation/widgets/text_widget.dart';
 
@@ -45,5 +46,17 @@ extension TranslationExtension on String {
     } else {
       return this;
     }
+  }
+}
+
+extension ScaleInt on int {
+  double get scale {
+    return scaleFontSize(toDouble());
+  }
+}
+
+extension ScaleDouble on double {
+  double get scale {
+    return scaleFontSize(this);
   }
 }
