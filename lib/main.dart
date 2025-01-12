@@ -1,23 +1,19 @@
 import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture_app/core/helper/helper.dart';
 import 'package:flutter_clean_architecture_app/core/injector.dart';
+import 'package:flutter_clean_architecture_app/core/translations/app_localizations_delegate.dart';
 import 'package:flutter_clean_architecture_app/core/utils/constant/enum.dart';
 import 'package:flutter_clean_architecture_app/core/utils/constant/key.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   setupLocator();
   WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
-  runApp(EasyLocalization(
-    supportedLocales: [Locale('en', 'US'), Locale('km', 'KH')],
-    path: 'assets/translations',
-    fallbackLocale: Locale('en', 'US'),
-    child: const MainApp(),
-  ));
+  runApp(const MainApp());
 }
 
 class MainApp extends StatefulWidget {
@@ -57,11 +53,25 @@ class _MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      scaffoldMessengerKey: scaffoldMessengerKey,
+    return MultiBlocProvider(
+      providers: [
+        // BlocProvider(create: (context) => AppStatusBloc()),
+        // BlocProvider(create: (context) => AuthBloc(authRepository: get<AuthRepository>())),
+        // BlocProvider(create: (context) => UserProfileBloc(userProfileRepository: get<UserProfileRepository>())),
+      ],
+      child: MaterialApp(
+        supportedLocales: [
+          Locale('en', 'EN'),
+          Locale('km', 'KH'),
+        ],
+        localizationsDelegates: [
+          const AppLocalizationsDelegate(),
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        locale: Locale('en', 'EN'),
+        scaffoldMessengerKey: scaffoldMessengerKey,
+      ),
     );
   }
 }

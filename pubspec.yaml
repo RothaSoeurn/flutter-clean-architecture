@@ -14,11 +14,12 @@ dependencies:
   http: ^1.2.2
   shared_preferences: ^2.3.5
   get_it: ^8.0.3
-  easy_localization: ^3.0.7
   sqflite: ^2.4.1
   path_provider: ^2.1.5
   path: ^1.9.0
   connectivity_plus: ^6.1.1
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:
@@ -28,7 +29,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/translations/
     - assets/images/
     - assets/icons/
     - assets/fonts/

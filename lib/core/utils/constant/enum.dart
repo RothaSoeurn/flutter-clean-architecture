@@ -14,3 +14,5 @@ enum MessageType {
   warning,
   error,
 }
+
+enum LanguageType { en, km }
