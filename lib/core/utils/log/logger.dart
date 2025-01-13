@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_clean_architecture_app/core/utils/constant/enum.dart';
 
 abstract class Logger {
@@ -7,21 +8,36 @@ abstract class Logger {
 class DebugLog implements Logger {
   @override
   void log(String message) {
-    log('DEBUG: $message');
+    if (kDebugMode) {
+      log('=====================================\n');
+      log('DEBUG: $message');
+      log('STACK TRACE: ${StackTrace.current}');
+      log('=====================================\n');
+    }
   }
 }
 
 class InfoLog implements Logger {
   @override
   void log(String message) {
-    log('INFO: $message');
+    if (kDebugMode) {
+      log('=====================================\n');
+      log('INFO: $message');
+      log('STACK TRACE: ${StackTrace.current}');
+      log('=====================================\n');
+    }
   }
 }
 
 class ErrorLog implements Logger {
   @override
   void log(String message) {
-    log('ERROR: $message');
+    if (kDebugMode) {
+      log('=====================================\n');
+      log('ERROR: $message');
+      log('STACK TRACE: ${StackTrace.current}');
+      log('=====================================\n');
+    }
   }
 }
 
