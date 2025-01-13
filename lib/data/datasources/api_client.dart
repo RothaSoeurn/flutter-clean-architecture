@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_clean_architecture_app/core/error/exceptions.dart';
+import 'package:flutter_clean_architecture_app/core/injector.dart';
 import 'package:flutter_clean_architecture_app/core/services/secure_storage_service.dart';
 import 'package:flutter_clean_architecture_app/core/utils/constant/key.dart';
 import 'package:flutter_clean_architecture_app/data/datasources/api.dart';
@@ -20,9 +21,10 @@ class ApiClient implements Api {
         throw GeneralException('Endpoint cannot be null or empty');
       }
       DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+      final secureStorageService = locator<SecureStorageService>();
       Map<String, dynamic> params = {
         'delice_info': deviceInfo.deviceInfo,
-        'token': await SecureStorageService.read(tokenKey),
+        'token': await secureStorageService.read(tokenKey),
       };
       if (paramters != null) {
         params.addAll(paramters);

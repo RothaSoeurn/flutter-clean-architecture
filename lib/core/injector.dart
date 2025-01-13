@@ -1,4 +1,5 @@
 import 'package:flutter_clean_architecture_app/core/services/database_service.dart';
+import 'package:flutter_clean_architecture_app/core/services/secure_storage_service.dart';
 import 'package:flutter_clean_architecture_app/core/services/shared_preference_service.dart';
 import 'package:flutter_clean_architecture_app/data/datasources/api_client.dart';
 import 'package:flutter_clean_architecture_app/data/repositories/auth_repository.dart';
@@ -13,4 +14,7 @@ void setupLocator() {
       .registerLazySingleton<DatabaseService>(() => DatabaseService.instance);
   locator.registerLazySingleton<SharedPreferenceService>(
       () => SharedPreferenceService.instance);
+
+  locator.registerLazySingleton<SecureStorageService>(
+      () => SecureStorageService());
 }
