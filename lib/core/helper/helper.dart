@@ -26,7 +26,7 @@ showMessage({
   } else {
     color = appRed;
   }
-  scaffoldMessengerKey?.currentState?.showSnackBar(
+  scaffoldMessengerKey.currentState?.showSnackBar(
     SnackBar(
       content: TextWidget(text: message),
       backgroundColor: color,
