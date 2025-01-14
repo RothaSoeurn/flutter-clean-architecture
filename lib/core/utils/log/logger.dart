@@ -9,10 +9,10 @@ class DebugLog implements Logger {
   @override
   void log(String message) {
     if (kDebugMode) {
-      log('=====================================\n');
-      log('DEBUG: $message');
-      log('STACK TRACE: ${StackTrace.current}');
-      log('=====================================\n');
+      debugPrint('=====================================\n');
+      debugPrint('DEBUG: $message');
+      // log('STACK TRACE: ${StackTrace.current}');
+      debugPrint('=====================================\n');
     }
   }
 }
@@ -21,10 +21,10 @@ class InfoLog implements Logger {
   @override
   void log(String message) {
     if (kDebugMode) {
-      log('=====================================\n');
-      log('INFO: $message');
-      log('STACK TRACE: ${StackTrace.current}');
-      log('=====================================\n');
+      debugPrint('=====================================\n');
+      debugPrint('INFO: $message');
+      // debugPrint('STACK TRACE: ${StackTrace.current}');
+      debugPrint('=====================================\n');
     }
   }
 }
@@ -33,10 +33,10 @@ class ErrorLog implements Logger {
   @override
   void log(String message) {
     if (kDebugMode) {
-      log('=====================================\n');
-      log('ERROR: $message');
-      log('STACK TRACE: ${StackTrace.current}');
-      log('=====================================\n');
+      debugPrint('=====================================\n');
+      debugPrint('ERROR: $message');
+      // debugPrint('STACK TRACE: ${StackTrace.current}');
+      debugPrint('=====================================\n');
     }
   }
 }

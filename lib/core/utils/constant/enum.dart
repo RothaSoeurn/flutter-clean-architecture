@@ -16,3 +16,11 @@ enum MessageType {
 }
 
 enum LanguageType { en, km }
+
+enum ChatMessageType {
+  text,
+  image,
+  file,
+  voice,
+  location,
+}

@@ -60,3 +60,7 @@ extension ScaleDouble on double {
     return scaleFontSize(this);
   }
 }
+
+String generateUniqueId() {
+  return DateTime.now().millisecondsSinceEpoch.toString();
+}
