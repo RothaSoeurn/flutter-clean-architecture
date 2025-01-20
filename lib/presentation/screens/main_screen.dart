@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture_app/presentation/screens/home/home_screen.dart';
 // import 'package:flutter_clean_architecture_app/core/helper/helper.dart';
 // import 'package:flutter_clean_architecture_app/presentation/screens/chat/message_builder.dart';
 // import 'package:flutter_clean_architecture_app/presentation/screens/chat/message_director.dart';
@@ -65,6 +66,11 @@ class _MainScreenState extends State<MainScreen> {
     //       "fileMessage == ${fileMessage.id} ${fileMessage.sender} ${fileMessage.receiver}  ${fileMessage.content} ${fileMessage.timestamp} ${fileMessage.type}",
     // );
     return Scaffold(
+      body: PageView(
+        children: [
+          HomeScreen(),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 0,
         items: [
