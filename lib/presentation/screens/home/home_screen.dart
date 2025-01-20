@@ -46,11 +46,11 @@ class _HomeScreenState extends State<HomeScreen> {
         duration: Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
-      // _pageController.animateToPage(
-      //   _currentIndex,
-      //   duration: Duration(milliseconds: 300),
-      //   curve: Curves.easeInOut,
-      // );
+      _pageController.animateToPage(
+        _currentIndex,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
     });
   }
 
@@ -107,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 final double currentPage =
                     metrics.pixels / metrics.viewportDimension;
                 final int roundedPage = currentPage.round();
-
+                print(roundedPage);
                 // If you want to update the page index:
                 if (roundedPage != _lastReportedPage) {
                   setState(() {
