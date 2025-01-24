@@ -54,35 +54,6 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  // static void isolateTask(SendPort sendPort) {
-  //   int result = 0;
-  //   for (int i = 0; i <= 100000000; i++) {
-  //     result += i;
-  //   }
-  //   sendPort.send(result); // Send the result back to the main isolate
-  // }
-
-  // Future<void> _startIsolate() async {
-  //   final ReceivePort receivePort = ReceivePort();
-  //   try {
-  //     // Spawn the isolate and pass the sendPort
-  //     await Isolate.spawn(isolateTask, receivePort.sendPort);
-
-  //     // Listen for the message from the isolate
-  //     receivePort.listen((message) {
-  //       setState(() {
-  //         _result = 'Result from isolate: $message';
-  //       });
-  //       receivePort.close();
-  //     });
-  //   } catch (e) {
-  //     // Handle any error that might occur during isolate spawning
-  //     setState(() {
-  //       _result = 'Error occurred: $e';
-  //     });
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,7 +78,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 final double currentPage =
                     metrics.pixels / metrics.viewportDimension;
                 final int roundedPage = currentPage.round();
-                print(roundedPage);
                 // If you want to update the page index:
                 if (roundedPage != _lastReportedPage) {
                   setState(() {
@@ -121,6 +91,8 @@ class _HomeScreenState extends State<HomeScreen> {
             child: SizedBox(
               height: 300,
               child: CarouselView.weighted(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5)),
                 controller: _controller,
                 // scrollDirection: Axis.vertical,
 
